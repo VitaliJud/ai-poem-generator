@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Haiku Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, select, button { margin: 10px; padding: 10px; }
+        .haiku { margin-top: 20px; padding: 15px; background-color: #f4f4f4; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>🌸 AI Haiku Generator 🌸</h1>
+    <form method="POST">
+        <input type="text" name="topic" placeholder="Enter topic (e.g., AI, nature)" required>
+        <select name="style">
+            <option value="traditional">Traditional</option>
+            <option value="modern">Modern</option>
+            <option value="funny">Funny</option>
+            <option value="mystical">Mystical</option>
+        </select>
+        <input type="number" name="temperature" step="0.1" min="0.0" max="1.0" value="0.7">
+        <button type="submit">Generate Haikus</button>
+    </form>
+
+    {% if haikus %}
+        <h2>Your Haikus:</h2>
+        {% for haiku in haikus %}
+            <div class="haiku">
+                <p>{{ haiku }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
